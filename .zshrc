@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/matheus/.oh-my-zsh"
+export ZSH="/home/m/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -39,7 +39,7 @@ ZSH_THEME="robbyrussell"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="false"
+# DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -70,8 +70,8 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)# tmux)
-# ZSH_TMUX_AUTOSTART=true
+plugins=(git)
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -100,19 +100,17 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# BASHRC
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/matheus/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/matheus/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/matheus/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/matheus/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+export HADOOP_HOME=/home/m/hadoop-2.10.1
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
 
+export SPARK_HOME=/opt/spark
+export PATH=$PATH:$SPARK_HOME/bin:$SPARK_HOME/sbin
+
+export PDSH_RCMD_TYPE=ssh
+
+export PIG_HOME=/opt/pig-0.17.0
+export PATH=$PIG_HOME/bin:$HADOOP_HOME/bin:$PATH
+
+alias hadoop="/home/m/hadoop-2.10.1/bin/hadoop"

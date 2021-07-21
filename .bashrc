@@ -1,4 +1,3 @@
-#[ -n "$GNOME_TERMINAL_SCREEN" ] && [ -x "$(command -v zsh)" ] && exec zsh "$@"
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -117,18 +116,17 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/matheus/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/matheus/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/matheus/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/matheus/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+# export HADOOP_HOME=/home/m/hadoop-3.3.1
+export HADOOP_HOME=/home/m/hadoop-2.10.1
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
 
+export SPARK_HOME=/opt/spark
+export PATH=$PATH:$SPARK_HOME/bin:$SPARK_HOME/sbin
+
+export PDSH_RCMD_TYPE=ssh
+
+export PIG_HOME=/opt/pig-0.17.0
+export PATH=$PIG_HOME/bin:$HADOOP_HOME/bin:$PATH
+
+#alias hadoop="/home/m/hadoop-3.3.1/bin/hadoop"
+alias hadoop="/home/m/hadoop-2.10.1/bin/hadoop"
